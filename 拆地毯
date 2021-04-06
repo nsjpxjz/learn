@@ -1,0 +1,48 @@
+#include<bits/stdc++.h>
+#define MAXN 200005
+using namespace std;
+struct node
+{
+	int u,v,w;
+}edge[MAXN];                       
+int n,m,father[MAXN],tot=0,k;
+long long ans=0;
+int find(int t)                      
+{
+	if(t==father[t])return t;
+	father[t]=find(father[t]);
+	return father[t];
+}
+bool cmp(node a,node b)             
+{
+	return a.w>b.w;
+}
+inline void kruskal()             
+{
+	int x,y;
+	for(int i=1;i<=m;i++)
+	{
+		x=find(edge[i].u);
+		y=find(edge[i].v);
+		if(x==y)continue;
+		ans+=edge[i].w;
+		father[x]=y;
+		tot++;
+		if(tot==k)break;
+	}
+}
+int main()
+{
+	cin>>n>>m>>k;
+	for(int i=1;i<=n;i++)
+		father[i]=i;            
+	for(int i=1;i<=m;i++)
+	{
+		cin>>edge[i].u>>edge[i].v>>edge[i].w;
+	}
+	sort(edge+1,edge+m+1,cmp);           
+                                                
+	kruskal();                   
+	cout<<ans<<endl;              
+	return 0;                  
+}
