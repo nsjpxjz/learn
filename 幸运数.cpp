@@ -4,19 +4,19 @@ int main()
 {
 	int i,j,m,n,sum=0,k,flag,min=0;
     int A[N]={0};
-    scanf("%d %d",&m,&n);//mÎªÏÂ½ç,nÎªÉÏ½ç 
+    scanf("%d %d",&m,&n);//mä¸ºä¸‹ç•Œ,nä¸ºä¸Šç•Œ 
     for (i=0;i<N;i++)
     {
-    	A[i]=1;//1ÔİÊ±±êÎªĞÒÔËÊı 
+    	A[i]=1;//1æš‚æ—¶æ ‡ä¸ºå¹¸è¿æ•° 
 	}
-    for (i=2;i<=n;i++)//´Ó2¿ªÊ¼É¾ 
+    for (i=2;i<=n;i++)//ä»2å¼€å§‹åˆ  
     {
     	if (A[i]==0) continue;
     	else {
     	k=1;flag=0;
     	for (j=2;j<=n;j++)
     	{
-    		if (A[j]==1) k++;//k±êĞò 
+    		if (A[j]==1) k++;//kæ ‡åº 
     		if (A[j]==1&&k%i==0) A[j]=0;
 		}
 	    }
