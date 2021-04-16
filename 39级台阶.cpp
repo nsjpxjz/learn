@@ -1,6 +1,6 @@
 #include <stdio.h>
 int sum=0;
-void find(int step,int n)//stepÎªµ±Ç°²½Êı,nÎªµ±Ç°½×Ìİ 
+void find(int step,int n)//stepä¸ºå½“å‰æ­¥æ•°,nä¸ºå½“å‰é˜¶æ¢¯ 
 {
 	if (n==39&&step%2==0) 
 	{
@@ -14,7 +14,7 @@ void find(int step,int n)//stepÎªµ±Ç°²½Êı,nÎªµ±Ç°½×Ìİ
 }
 int main()
 {
-	find(0,0);//´Ó½×Ìİ0,²½Êı0Æğ²½ 
+	find(0,0);//ä»é˜¶æ¢¯0,æ­¥æ•°0èµ·æ­¥ 
     printf("%d",sum);
     return 0;
 }
