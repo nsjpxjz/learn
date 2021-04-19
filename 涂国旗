@@ -1,0 +1,67 @@
+#include<bits/stdc++.h>
+using namespace std;
+char a[60][60];
+int line[60][7]={{0}};
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    for(int i=1;i<=n;i++)
+    {
+        for(int h=1;h<=m;h++)
+        {
+            cin>>a[i][h];
+
+            if(a[i][h]=='W')
+            {
+                line[i][1]++;
+             }
+            if(a[i][h]=='B')
+            {
+                line[i][2]++;
+            }
+            if(a[i][h]=='R')
+            {
+                line[i][3]++;
+
+            }
+        }
+    }
+
+    int mi;
+    mi=9999999;
+    int z;
+    z=0;
+    for(int i=1;i<=n-2;i++)
+        for(int h=1;h<=n-2;h++)
+        {
+
+            z=0;
+            if(i+h>n-1)
+            {
+                continue;
+            }
+            for(int t=1;t<=i;t++)
+            {
+                z=z+line[t][2]+line[t][3];
+
+            }
+            for(int t=i+1;t<=n-h;t++)
+            {
+
+                z=z+line[t][1]+line[t][3];
+            }
+            for(int t=n-h+1;t<=n;t++)
+            {
+                z=z+line[t][2]+line[t][1];
+            }
+            if(z<mi)
+            {
+                mi=z;
+            }
+            z=0;
+        }
+
+    cout<<mi;
+    return 0;
+}
