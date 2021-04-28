@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int a[100005],b[100005],m,n,sum = 0;
+int main()
+{
+   cin>>m>>n;
+   for(int i = 1;i <= m;++i)
+   cin>>a[i];
+   for(int i = 1;i <= n;++i)
+   cin>>b[i];
+   sort(a+1,a+m+1);
+   for(int i = 1;i <= n;++i)
+   {
+       int l = 1,r = m;
+       while(l < r)
+       {
+          int mid = (l+r)>>1;
+           if(b[i] >= a[mid])
+            l = mid + 1;
+           else
+            r = mid;
+       }
+       if(b[i] <= a[1])
+        sum += a[1] - b[i];
+      else
+       sum += min(abs(a[l] - b[i]),abs(a[l-1]-b[i]));
+   }
+   cout<<sum;
+   return 0;
+}
